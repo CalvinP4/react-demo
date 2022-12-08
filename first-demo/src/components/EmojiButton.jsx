@@ -1,6 +1,14 @@
 export default function EmojiButton({btnImage}) {
+
+    const printHello = () => {
+        console.log("Hello");
+    }
+
+
     return (
-        <button>
+        <button
+            onClick={printHello}
+        >
             <img 
                 src={btnImage}
                 width={100}
