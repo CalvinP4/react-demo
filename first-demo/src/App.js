@@ -3,7 +3,9 @@ import EmojiButton from './components/EmojiButton';
 
 function App() {
   return (
-    <EmojiButton />
+    <EmojiButton 
+      btnImage="laugh.png"
+    />
   );
 }
 

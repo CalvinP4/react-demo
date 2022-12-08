@@ -1,8 +1,8 @@
-export default function EmojiButton() {
+export default function EmojiButton({btnImage}) {
     return (
         <button>
             <img 
-                src="laugh.png"
+                src={btnImage}
                 width={100}
                 height={100}
                 alt="Emoji button"
