@@ -23,16 +23,16 @@ export default function App() {
         imgPath={require("./assets/laugh.png")}
       />
       <Display 
-        text="I have laughed 0 times"
+        text={`I have laughed ${laughCount} times`}
         backgroundColor="red"
         textColor="white"
       />
       <EmojiButton 
-        onPress={incrementLaughCount}
+        onPress={incrementWinkCount}
         imgPath={require("./assets/wink.png")}
       />
       <Display 
-        text="I have winked 0 times"
+        text={`I have winked ${winkCount} times`}
         backgroundColor="pink"
         textColor="black"
       />
