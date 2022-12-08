@@ -1,10 +1,12 @@
 import { TouchableOpacity, Image } from "react-native";
 
-export default function EmojiButton() {
+export default function EmojiButton(props) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity
+        onPress={props.onPress}
+    >
       <Image
-        source={require("../../assets/laugh.png")}
+        source={props.imgPath}
         style={{ width: 100, height: 100 }}
       />
     </TouchableOpacity>
