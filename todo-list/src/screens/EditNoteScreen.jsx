@@ -8,10 +8,22 @@ import {
 } from "react-native";
 
 export default function EditNoteScreen({ route, navigation, GlobalState }) {
-  const [title, onChangeTitle] = React.useState("");
-  const [content, onChangeContent] = React.useState("");
+  const { id } = route.params;
+  const note = GlobalState.notes.find((note) => note.id === id);
+
+  const [title, onChangeTitle] = React.useState(note.title);
+  const [content, onChangeContent] = React.useState(note.content);
 
   const editNote = () => {
+    GlobalState.setNotes([
+      {
+        id: note.id,
+        title: title,
+        content: content,
+      },
+      ...GlobalState.notes.filter((n) => n.id != note.id),
+    ]);
+    
     navigation.navigate("Main");
   };
 
@@ -21,6 +33,7 @@ export default function EditNoteScreen({ route, navigation, GlobalState }) {
         style={styles.title}
         placeholder="Title"
         onChangeText={onChangeTitle}
+        value={title}
       />
       <TextInput
         multiline
@@ -28,6 +41,7 @@ export default function EditNoteScreen({ route, navigation, GlobalState }) {
         placeholder="Content"
         numberOfLines={20}
         onChangeText={onChangeContent}
+        value={content}
       />
       <TouchableOpacity
         style={
