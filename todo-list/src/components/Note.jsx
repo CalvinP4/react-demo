@@ -10,7 +10,7 @@ function IconButton({ iconName, onPress }) {
   );
 }
 
-export default function Note({id, title, content, onView, onDelete}) {
+export default function Note({ id, title, content, onView, onDelete, onEdit }) {
   const printHello = () => {
     console.log("Hello World");
   };
@@ -20,9 +20,15 @@ export default function Note({id, title, content, onView, onDelete}) {
       <Text style={styles.noteHeader}>{title}</Text>
       <Text>{content}</Text>
       <View style={styles.buttonRow}>
-        <IconButton iconName={"trash-bin-outline"} onPress={() => onDelete(id)} />
-        <IconButton iconName={"pencil-outline"} onPress={printHello} />
-        <IconButton iconName={"arrow-forward-outline"} onPress={() => onView(id)} />
+        <IconButton
+          iconName={"trash-bin-outline"}
+          onPress={() => onDelete(id)}
+        />
+        <IconButton iconName={"pencil-outline"} onPress={() => onEdit(id)} />
+        <IconButton
+          iconName={"arrow-forward-outline"}
+          onPress={() => onView(id)}
+        />
       </View>
     </View>
   );

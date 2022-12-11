@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MainScreen from "./src/screens/MainScreen";
 import ViewNoteScreen from "./src/screens/ViewNoteScreen";
 import CreateNoteScreen from "./src/screens/CreateNoteScreen";
+import EditNoteScreen from "./src/screens/EditNoteScreen";
 
 // [The navigation Stack]
 // keeps track of all screens navigated to
@@ -40,6 +41,9 @@ export default function App() {
         </Stack.Screen>
         <Stack.Screen name="Create">
           {(props) => <CreateNoteScreen {...props} GlobalState={GlobalState} />}
+        </Stack.Screen>
+        <Stack.Screen name="Edit">
+          {(props) => <EditNoteScreen {...props} GlobalState={GlobalState} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
