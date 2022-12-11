@@ -11,14 +11,16 @@ function IconButton({ iconName, onPress }) {
 }
 
 export default function Note({ id, title, content, onView, onDelete, onEdit }) {
-  const printHello = () => {
-    console.log("Hello World");
+  const truncateContent = (content) => {
+    if (content.length < 100) return content;
+
+    return content.slice(0, 97) + "...";
   };
 
   return (
     <View style={styles.note}>
       <Text style={styles.noteHeader}>{title}</Text>
-      <Text>{content}</Text>
+      <Text>{truncateContent(content)}</Text>
       <View style={styles.buttonRow}>
         <IconButton
           iconName={"trash-bin-outline"}
