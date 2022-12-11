@@ -11,6 +11,11 @@ export default function MainScreen({ navigation, GlobalState }) {
     navigation.navigate("Create");
   };
 
+  const deleteNote = (id) => {
+    const updatedNotes = GlobalState.notes.filter((note) => note.id !== id);
+    GlobalState.setNotes(updatedNotes);
+  };
+
   return (
     <>
       <ScrollView style={{ padding: 4, alignSelf: "center", marginBottom: 4 }}>
@@ -21,6 +26,7 @@ export default function MainScreen({ navigation, GlobalState }) {
             title={note.title}
             content={note.content}
             onView={navigateToViewNoteScreen}
+            onDelete={deleteNote}
           />
         ))}
       </ScrollView>
