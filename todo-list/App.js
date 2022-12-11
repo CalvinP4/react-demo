@@ -1,20 +1,21 @@
-import { StyleSheet,  View } from 'react-native';
-import CreateButton from './src/components/CreateButton';
-import Note from './src/components/Note';
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import MainScreen from "./src/screens/MainScreen";
+
+// [The navigation Stack]
+// keeps track of all screens navigated to
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Note />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Main">
+        {(props) => <MainScreen {...props} />}
+        </Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
