@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Create">
+      <Stack.Navigator initialRouteName="Main">
         <Stack.Screen name="Main">
           {(props) => <MainScreen {...props} GlobalState={GlobalState} />}
         </Stack.Screen>
