@@ -4,8 +4,8 @@ import CreateButton from "../components/CreateButton";
 
 export default function MainScreen({ navigation, GlobalState }) {
 
- const navigateToViewNoteScreen = () => {
-    navigation.navigate("Note");
+ const navigateToViewNoteScreen = (id) => {
+    navigation.navigate("Note", {id});
  }
 
   return (

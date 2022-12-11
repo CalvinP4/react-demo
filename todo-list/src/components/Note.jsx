@@ -22,7 +22,7 @@ export default function Note({id, title, content, onView}) {
       <View style={styles.buttonRow}>
         <IconButton iconName={"trash-bin-outline"} onPress={printHello} />
         <IconButton iconName={"pencil-outline"} onPress={printHello} />
-        <IconButton iconName={"arrow-forward-outline"} onPress={onView} />
+        <IconButton iconName={"arrow-forward-outline"} onPress={() => onView(id)} />
       </View>
     </View>
   );
