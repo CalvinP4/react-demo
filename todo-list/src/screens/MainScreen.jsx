@@ -3,6 +3,11 @@ import { ScrollView } from "react-native";
 import CreateButton from "../components/CreateButton";
 
 export default function MainScreen({ navigation, GlobalState }) {
+
+ const navigateToViewNoteScreen = () => {
+    navigation.navigate("Note");
+ }
+
   return (
     <>
       <ScrollView style={{ padding: 4, alignSelf: "center", marginBottom: 4 }}>
@@ -12,6 +17,7 @@ export default function MainScreen({ navigation, GlobalState }) {
             id={note.id}
             title={note.title}
             content={note.content}
+            onView={navigateToViewNoteScreen}
           />
         ))}
       </ScrollView>

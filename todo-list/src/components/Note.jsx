@@ -10,7 +10,7 @@ function IconButton({ iconName, onPress }) {
   );
 }
 
-export default function Note({id, title, content}) {
+export default function Note({id, title, content, onView}) {
   const printHello = () => {
     console.log("Hello World");
   };
@@ -22,7 +22,7 @@ export default function Note({id, title, content}) {
       <View style={styles.buttonRow}>
         <IconButton iconName={"trash-bin-outline"} onPress={printHello} />
         <IconButton iconName={"pencil-outline"} onPress={printHello} />
-        <IconButton iconName={"arrow-forward-outline"} onPress={printHello} />
+        <IconButton iconName={"arrow-forward-outline"} onPress={onView} />
       </View>
     </View>
   );
