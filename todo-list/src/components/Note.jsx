@@ -2,21 +2,27 @@ import React from "react";
 import { Text, TouchableOpacity, View, StyleSheet } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
+function IconButton({ iconName, onPress }) {
+  return (
+    <TouchableOpacity onPress={onPress} style={styles.iconButton}>
+      <Ionicons name={iconName} size={32} />
+    </TouchableOpacity>
+  );
+}
+
 export default function Note() {
+  const printHello = () => {
+    console.log("Hello World");
+  };
+
   return (
     <View style={styles.note}>
       <Text style={styles.noteHeader}>Title</Text>
       <Text>This is some content</Text>
-      <View  style={styles.buttonRow}>
-        <TouchableOpacity>
-          <Ionicons name="trash-bin-outline" size={32} />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Ionicons name="trash-bin-outline" size={32} />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Ionicons name="trash-bin-outline" size={32} />
-        </TouchableOpacity>
+      <View style={styles.buttonRow}>
+        <IconButton iconName={"trash-bin-outline"} onPress={printHello} />
+        <IconButton iconName={"pencil-outline"} onPress={printHello} />
+        <IconButton iconName={"arrow-forward-outline"} onPress={printHello} />
       </View>
     </View>
   );
@@ -38,5 +44,10 @@ const styles = StyleSheet.create({
   buttonRow: {
     flexDirection: "row",
     marginTop: 32,
+  },
+  iconButton: {
+    width: 32,
+    height: 32,
+    marginRight: 32,
   },
 });
