@@ -1,10 +1,19 @@
 import React from "react";
-import { TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
 export default function CreateButton() {
   return (
     <TouchableOpacity
-      style={{
+      style={styles.createButton}
+    >
+      <Text style={styles.icon}>+</Text>
+    </TouchableOpacity>
+  );
+}
+
+
+const styles = StyleSheet.create({
+    createButton: {
         elevation: 4,
         width: 80,
         height: 80,
@@ -15,9 +24,9 @@ export default function CreateButton() {
         position: "absolute",
         bottom: 8,
         right: 4,
-      }}
-    >
-      <Text style={{ fontSize: 50, color: "white" }}>+</Text>
-    </TouchableOpacity>
-  );
-}
+      },
+      icon: {
+        fontSize: 50, 
+        color: "white"
+      }
+});
