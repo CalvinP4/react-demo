@@ -10,15 +10,15 @@ function IconButton({ iconName, onPress }) {
   );
 }
 
-export default function Note() {
+export default function Note({id, title, content}) {
   const printHello = () => {
     console.log("Hello World");
   };
 
   return (
     <View style={styles.note}>
-      <Text style={styles.noteHeader}>Title</Text>
-      <Text>This is some content</Text>
+      <Text style={styles.noteHeader}>{title}</Text>
+      <Text>{content}</Text>
       <View style={styles.buttonRow}>
         <IconButton iconName={"trash-bin-outline"} onPress={printHello} />
         <IconButton iconName={"pencil-outline"} onPress={printHello} />
