@@ -7,9 +7,23 @@ import {
   StyleSheet,
 } from "react-native";
 
-export default function CreateNoteScreen() {
+export default function CreateNoteScreen({navigation, GlobalState}) {
   const [title, onChangeTitle] = React.useState("");
   const [content, onChangeContent] = React.useState("");
+
+
+  const createNote = () => {
+    GlobalState.setNotes([
+        ...GlobalState.notes,
+        {
+          id: GlobalState.notes.length * 100 + 1,
+          title: title,
+          content: content,
+        },
+      ]);
+  
+      navigation.navigate("Main");
+  }
 
   return (
     <View>
@@ -32,6 +46,7 @@ export default function CreateNoteScreen() {
             : styles.buttonEnabled
         }
         disabled={title === "" || content === ""}
+        onPress={createNote}
       >
         <Text style={styles.buttonText}>Add note</Text>
       </TouchableOpacity>
