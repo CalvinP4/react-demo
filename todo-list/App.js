@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import MainScreen from "./src/screens/MainScreen";
+import ViewNoteScreen from "./src/screens/ViewNoteScreen";
 
 // [The navigation Stack]
 // keeps track of all screens navigated to
@@ -29,9 +30,12 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Main">
         <Stack.Screen name="Main">
           {(props) => <MainScreen {...props} GlobalState={GlobalState} />}
+        </Stack.Screen>
+        <Stack.Screen name="Note">
+          {(props) => <ViewNoteScreen {...props} GlobalState={GlobalState} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
