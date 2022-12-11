@@ -1,10 +1,11 @@
 import { StyleSheet,  View } from 'react-native';
 import CreateButton from './src/components/CreateButton';
+import Note from './src/components/Note';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <CreateButton />
+      <Note />
     </View>
   );
 }
